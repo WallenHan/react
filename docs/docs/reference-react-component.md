@@ -17,11 +17,19 @@ redirect_from:
 
 [Components](/react/docs/components-and-props.html) let you split the UI into independent, reusable pieces, and think about each piece in isolation. `React.Component` is provided by [`React`](/react/docs/react-api.html).
 
+[Components](/react/docs/components-and-props.html) 让你将 UI 拆分成独立的、可复用的模块，可以让你独立地考虑每一个模块。
+
 ## Overview
+## 总览
 
 `React.Component` is an abstract base class, so it rarely makes sense to refer to `React.Component` directly. Instead, you will typically subclass it, and define at least a [`render()`](#render) method.
 
+`React.Component` 是一个抽象基类,所以很少直接调用。一般来讲你会创建一个实现基于它的子类，并至少定义一个实现[`render()`](#render) 方法。
+
 Normally you would define a React component as a plain [JavaScript class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+
+通常定义一个组件就像下面这样的 [JavaScript class](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Classes):
+
 
 ```javascript
 class Greeting extends React.Component {
@@ -32,6 +40,8 @@ class Greeting extends React.Component {
 ```
 
 If you don't use ES6 yet, you may use the [`create-react-class`](/react/docs/react-api.html#createclass) module instead. Take a look at [Using React without ES6](/react/docs/react-without-es6.html) to learn more.
+
+如果你还没有使用 ES6， 你可以使用 [`create-react-class`](/react/docs/react-api.html#createclass) 模块来代替。如果想了解更多不用 ES6 使用 React 点击 [Using React without ES6](/react/docs/react-without-es6.html)
 
 ### The Component Lifecycle
 
