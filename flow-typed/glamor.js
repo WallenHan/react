@@ -5,3 +5,20 @@ declare module 'glamor' {
     },
   };
 }
+<<<<<<< HEAD
+=======
+
+declare module 'glamor/react' {
+  declare module.exports: {
+    createElement: any,
+    dom: any,
+    vars: any,
+    makeTheme: any,
+    propMerge: Function,
+  };
+}
+
+declare module 'glamor/reset' {
+  declare module.exports: any;
+}
+>>>>>>> upstream/master

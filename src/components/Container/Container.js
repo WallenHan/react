@@ -5,8 +5,11 @@
  * @flow
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import React from 'react';
 
 import {media} from 'theme';

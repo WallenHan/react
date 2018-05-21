@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import React from 'react';
 import {colors, media} from 'theme';
 import isItemActive from 'utils/isItemActive';

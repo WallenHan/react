@@ -6,6 +6,7 @@
 
 'use strict';
 
+<<<<<<< HEAD
 const {resolve} = require('path');
 const webpack = require('webpack');
 
@@ -251,3 +252,9 @@ exports.onCreatePage = async ({page, boundActionCreators}) => {
     resolvePromise();
   });
 };
+=======
+exports.modifyWebpackConfig = require('./gatsby/modifyWebpackConfig');
+exports.createPages = require('./gatsby/createPages');
+exports.onCreateNode = require('./gatsby/onCreateNode');
+exports.onCreatePage = require('./gatsby/onCreatePage');
+>>>>>>> upstream/master

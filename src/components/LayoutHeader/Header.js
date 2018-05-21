@@ -2,10 +2,16 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
 
+=======
+ * @flow
+ */
+
+>>>>>>> upstream/master
 import Container from 'components/Container';
 import HeaderLink from './HeaderLink';
 import Link from 'gatsby-link';
@@ -13,10 +19,18 @@ import React from 'react';
 import {colors, fonts, media} from 'theme';
 import {version} from 'site-constants';
 import ExternalLinkSvg from 'templates/components/ExternalLinkSvg';
+<<<<<<< HEAD
 
 import logoSvg from 'icons/logo.svg';
 
 const Header = ({location}) => (
+=======
+import DocSearch from './DocSearch';
+
+import logoSvg from 'icons/logo.svg';
+
+const Header = ({location}: {location: Location}) => (
+>>>>>>> upstream/master
   <header
     css={{
       backgroundColor: colors.darker,
@@ -47,6 +61,15 @@ const Header = ({location}) => (
             marginRight: 10,
             height: '100%',
             alignItems: 'center',
+<<<<<<< HEAD
+=======
+            color: colors.brand,
+
+            ':focus': {
+              outline: 0,
+              color: colors.white,
+            },
+>>>>>>> upstream/master
 
             [media.greaterThan('small')]: {
               width: 'calc(100% / 6)',
@@ -59,7 +82,11 @@ const Header = ({location}) => (
           <img src={logoSvg} alt="" height="20" />
           <span
             css={{
+<<<<<<< HEAD
               color: colors.brand,
+=======
+              color: 'inherit',
+>>>>>>> upstream/master
               marginLeft: 10,
               fontWeight: 700,
               fontSize: 20,
@@ -94,6 +121,10 @@ const Header = ({location}) => (
             WebkitOverflowScrolling: 'touch',
             height: '100%',
             width: '60%',
+<<<<<<< HEAD
+=======
+
+>>>>>>> upstream/master
             [media.size('xsmall')]: {
               flexGrow: '1',
               width: 'auto',
@@ -108,26 +139,43 @@ const Header = ({location}) => (
           }}>
           <HeaderLink
             isActive={location.pathname.includes('/docs/')}
+<<<<<<< HEAD
             title="Docs"
+=======
+            title="文档"
+>>>>>>> upstream/master
             to="/docs/hello-world.html"
           />
           <HeaderLink
             isActive={location.pathname.includes('/tutorial/')}
+<<<<<<< HEAD
             title="Tutorial"
+=======
+            title="教程"
+>>>>>>> upstream/master
             to="/tutorial/tutorial.html"
           />
           <HeaderLink
             isActive={location.pathname.includes('/community/')}
+<<<<<<< HEAD
             title="Community"
+=======
+            title="社区"
+>>>>>>> upstream/master
             to="/community/support.html"
           />
           <HeaderLink
             isActive={location.pathname.includes('/blog')}
+<<<<<<< HEAD
             title="Blog"
+=======
+            title="博客"
+>>>>>>> upstream/master
             to="/blog/"
           />
         </nav>
 
+<<<<<<< HEAD
         <form
           css={{
             display: 'flex',
@@ -194,6 +242,9 @@ const Header = ({location}) => (
             aria-label="Search docs"
           />
         </form>
+=======
+        <DocSearch />
+>>>>>>> upstream/master
 
         <div
           css={{
@@ -207,10 +258,25 @@ const Header = ({location}) => (
           <a
             css={{
               padding: '5px 10px',
+<<<<<<< HEAD
               backgroundColor: colors.lighter,
               borderRadius: 15,
               whiteSpace: 'nowrap',
               ...fonts.small,
+=======
+              whiteSpace: 'nowrap',
+              ...fonts.small,
+
+              ':hover': {
+                color: colors.brand,
+              },
+
+              ':focus': {
+                outline: 0,
+                backgroundColor: colors.lighter,
+                borderRadius: 15,
+              },
+>>>>>>> upstream/master
             }}
             href="https://github.com/facebook/react/releases"
             target="_blank"
@@ -223,9 +289,22 @@ const Header = ({location}) => (
               marginLeft: 10,
               whiteSpace: 'nowrap',
               ...fonts.small,
+<<<<<<< HEAD
               ':hover': {
                 color: colors.brand,
               },
+=======
+
+              ':hover': {
+                color: colors.brand,
+              },
+
+              ':focus': {
+                outline: 0,
+                backgroundColor: colors.lighter,
+                borderRadius: 15,
+              },
+>>>>>>> upstream/master
             }}
             href="https://github.com/facebook/react/"
             target="_blank"

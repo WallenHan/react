@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import Sidebar from './Sidebar';
 
 export default Sidebar;

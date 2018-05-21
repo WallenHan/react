@@ -2,10 +2,16 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
 
+=======
+ * @flow
+ */
+
+>>>>>>> upstream/master
 import Container from 'components/Container';
 import ExternalFooterLink from './ExternalFooterLink';
 import FooterLink from './FooterLink';
@@ -16,7 +22,11 @@ import {colors, media} from 'theme';
 
 import ossLogoPng from 'images/oss_logo.png';
 
+<<<<<<< HEAD
 const Footer = ({layoutHasSidebar = false}) => (
+=======
+const Footer = ({layoutHasSidebar = false}: {layoutHasSidebar: boolean}) => (
+>>>>>>> upstream/master
   <footer
     css={{
       backgroundColor: colors.darker,
@@ -60,6 +70,7 @@ const Footer = ({layoutHasSidebar = false}) => (
             },
           }}>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Docs</MetaTitle>
             <FooterLink to="/docs/hello-world.html">Quick Start</FooterLink>
             <FooterLink to="/docs/thinking-in-react.html">
@@ -72,6 +83,20 @@ const Footer = ({layoutHasSidebar = false}) => (
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>Community</MetaTitle>
+=======
+            <MetaTitle onDark={true}>文档</MetaTitle>
+            <FooterLink to="/docs/hello-world.html">快速开始</FooterLink>
+            <FooterLink to="/docs/thinking-in-react.html">
+              React 理念
+            </FooterLink>
+            <FooterLink to="/tutorial/tutorial.html">入门教程</FooterLink>
+            <FooterLink to="/docs/jsx-in-depth.html">
+              高级指引
+            </FooterLink>
+          </FooterNav>
+          <FooterNav layoutHasSidebar={layoutHasSidebar}>
+            <MetaTitle onDark={true}>社区</MetaTitle>
+>>>>>>> upstream/master
             <ExternalFooterLink
               href="http://stackoverflow.com/questions/tagged/reactjs"
               target="_blank"
@@ -82,13 +107,21 @@ const Footer = ({layoutHasSidebar = false}) => (
               href="https://discuss.reactjs.org"
               target="_blank"
               rel="noopener">
+<<<<<<< HEAD
               Discussion Forum
+=======
+              Discussion 论坛
+>>>>>>> upstream/master
             </ExternalFooterLink>
             <ExternalFooterLink
               href="https://discord.gg/0ZcbPKXt5bZjGY5n"
               target="_blank"
               rel="noopener">
+<<<<<<< HEAD
               Reactiflux Chat
+=======
+              Reactiflux 聊天室
+>>>>>>> upstream/master
             </ExternalFooterLink>
             <ExternalFooterLink
               href="https://www.facebook.com/react"
@@ -104,6 +137,7 @@ const Footer = ({layoutHasSidebar = false}) => (
             </ExternalFooterLink>
           </FooterNav>
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
+<<<<<<< HEAD
             <MetaTitle onDark={true}>Resources</MetaTitle>
             <FooterLink to="/community/conferences.html">
               Conferences
@@ -125,6 +159,21 @@ const Footer = ({layoutHasSidebar = false}) => (
           <FooterNav layoutHasSidebar={layoutHasSidebar}>
             <MetaTitle onDark={true}>More</MetaTitle>
             <FooterLink to="/blog/">Blog</FooterLink>
+=======
+            <MetaTitle onDark={true}>参考资料</MetaTitle>
+            <FooterLink to="/community/conferences.html">
+              会议
+            </FooterLink>
+            <FooterLink to="/community/videos.html">视频</FooterLink>
+            <FooterLink to="/community/examples.html">示例</FooterLink>
+            <FooterLink to="/community/debugging-tools.html">
+              开发工具
+            </FooterLink>
+          </FooterNav>
+          <FooterNav layoutHasSidebar={layoutHasSidebar}>
+            <MetaTitle onDark={true}>其他</MetaTitle>
+            <FooterLink to="/blog/">博客</FooterLink>
+>>>>>>> upstream/master
             <ExternalFooterLink
               href="https://github.com/facebook/react"
               target="_blank"
@@ -138,7 +187,11 @@ const Footer = ({layoutHasSidebar = false}) => (
               React Native
             </ExternalFooterLink>
             <FooterLink to="/acknowledgements.html">
+<<<<<<< HEAD
               Acknowledgements
+=======
+              致谢
+>>>>>>> upstream/master
             </FooterLink>
           </FooterNav>
         </div>
@@ -181,6 +234,16 @@ const Footer = ({layoutHasSidebar = false}) => (
             }}>
             Copyright © 2017 Facebook Inc.
           </p>
+<<<<<<< HEAD
+=======
+          <p
+            css={{
+              color: colors.subtleOnDark,
+              paddingTop: 15,
+            }}>
+            <a href="https://docschina.org/" target="_blank">印记中文</a>
+          </p>
+>>>>>>> upstream/master
         </section>
       </div>
     </Container>

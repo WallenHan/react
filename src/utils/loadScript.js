@@ -7,8 +7,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 export default url =>
   new Promise((resolve, reject) =>
     document.head.appendChild(

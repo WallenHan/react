@@ -2,16 +2,27 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
 */
+=======
+ */
+>>>>>>> upstream/master
 
 'use strict';
 
 module.exports = {
   siteMetadata: {
+<<<<<<< HEAD
     title: 'React: A JavaScript library for building user interfaces',
     siteUrl: 'https://reactjs.org',
     rssFeedTitle: 'React',
     rssFeedDescription: 'A JavaScript library for building user interfaces',
+=======
+    title: 'React 中文文档: 用于构建用户界面的 JavaScript 库',
+    siteUrl: 'https://doc.react-china.org',
+    rssFeedTitle: 'React 中文文档',
+    rssFeedDescription: '用于构建用户界面的 JavaScript 库',
+>>>>>>> upstream/master
   },
   mapping: {
     'MarkdownRemark.frontmatter.author': 'AuthorYaml',
@@ -19,10 +30,18 @@ module.exports = {
   plugins: [
     'gatsby-source-react-error-codes',
     'gatsby-transformer-authors-yaml',
+<<<<<<< HEAD
     'gatsby-plugin-netlify',
     'gatsby-plugin-glamor',
     'gatsby-plugin-react-next',
     'gatsby-plugin-twitter',
+=======
+    'gatsby-transformer-home-example-code',
+    'gatsby-plugin-netlify',
+    'gatsby-plugin-glamor',
+    'gatsby-plugin-react-next',
+    // 'gatsby-plugin-twitter',
+>>>>>>> upstream/master
     {
       resolve: 'gatsby-plugin-nprogress',
       options: {
@@ -55,6 +74,29 @@ module.exports = {
             },
           },
           'gatsby-remark-autolink-headers',
+<<<<<<< HEAD
+=======
+          {
+            resolve: 'gatsby-remark-code-repls',
+            options: {
+              defaultText: 'Try it on CodePen',
+              directory: `${__dirname}/examples/`,
+              externals: [
+                `//unpkg.com/react/umd/react.development.js`,
+                `//unpkg.com/react-dom/umd/react-dom.development.js`,
+              ],
+              redirectTemplate: `${__dirname}/src/templates/codepen-example.js`,
+              target: '_blank',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-embed-snippet',
+            options: {
+              classPrefix: 'gatsby-code-',
+              directory: `${__dirname}/examples/`,
+            },
+          },
+>>>>>>> upstream/master
           'gatsby-remark-use-jsx',
           {
             resolve: 'gatsby-remark-prismjs',
@@ -135,5 +177,9 @@ module.exports = {
       },
     },
     'gatsby-plugin-react-helmet',
+<<<<<<< HEAD
+=======
+    'gatsby-plugin-catch-links',
+>>>>>>> upstream/master
   ],
 };

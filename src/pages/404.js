@@ -5,8 +5,11 @@
  * @flow
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import Container from 'components/Container';
 import Header from 'components/Header';
 import TitleAndMetaTags from 'components/TitleAndMetaTags';

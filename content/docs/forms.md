@@ -25,7 +25,11 @@ HTML表单元素与React中的其他DOM元素有所不同,因为表单元素生�
 
 ## 受控组件
 
+<<<<<<< HEAD:content/docs/forms.md
 在HTML当中，像`<input>`,`<textarea>`, 和 `<select>`这类表单元素会维持自身状态，并根据用户输入进行更新。但在React中，可变的状态通常保存在组件的状态属性中，并且只能用 [`setState()`](/docs/react-component.html#setstate). 方法进行更新.
+=======
+在HTML当中，像`<input>`,`<textarea>`, 和 `<select>`这类表单元素会维持自身状态，并根据用户输入进行更新。但在React中，可变的状态通常保存在组件的状态属性中，并且只能用 [`setState()`](/docs/react-component.html#setstate) 方法进行更新。
+>>>>>>> upstream/master:content/docs/forms.md
 
 我们通过使react变成一种单一数据源的状态来结合二者。React负责渲染表单的组件仍然控制用户后续输入时所发生的变化。相应的，其值由React控制的输入表单元素称为“受控组件”。
 
@@ -64,7 +68,7 @@ class NameForm extends React.Component {
 }
 ```
 
-[在 CodePen 上尝试.](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
+[在 CodePen 上尝试。](https://codepen.io/gaearon/pen/VmmPgp?editors=0010)
 
 由于 `value` 属性是在我们的表单元素上设置的，因此显示的值将始终为 React数据源上`this.state.value` 的值。由于每次按键都会触发 `handleChange` 来更新当前React的state，所展示的值也会随着不同用户的输入而更新。
 
@@ -77,7 +81,7 @@ handleChange(event) {
 }
 ```
 
-## textarea标签
+## textarea 标签
 
 在HTML当中，`<textarea>` 元素通过子节点来定义它的文本内容
 
@@ -126,7 +130,7 @@ class EssayForm extends React.Component {
 
 注意`this.state.value`是在构造函数中初始化，这样文本区域就能获取到其中的文本。
 
-## select标签
+## select 标签
 
 在HTML当中，`<select>`会创建一个下拉列表。例如这个HTML就创建了一个下拉列表的原型。
 
@@ -139,7 +143,7 @@ class EssayForm extends React.Component {
 </select>
 ```
 
-请注意，Coconut选项最初由于`selected`属性是被选中的。在React中，会在根`select`标签上而不是在当前的`selected`属性上使用`value`属性。
+请注意，Coconut选项最初由于`selected`属性是被选中的。在React中，并不使用之前的`selected`属性，而在根`select`标签上用`value`属性来表示选中项。这在受控组件中更为方便，因为你只需要在一个地方来更新组件。例如：
 
 ```javascript{4,10-12,24}
 class FlavorForm extends React.Component {
@@ -179,9 +183,23 @@ class FlavorForm extends React.Component {
 }
 ```
 
+<<<<<<< HEAD:content/docs/forms.md
 [在 CodePen 上尝试.](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
+=======
+[在 CodePen 上尝试。](https://codepen.io/gaearon/pen/JbbEzX?editors=0010)
+>>>>>>> upstream/master:content/docs/forms.md
 
 总之，`<input type="text">`, `<textarea>`, 和 `<select>` 都十分类似 - 他们都通过传入一个`value`属性来实现对组件的控制。
+
+## file input 标签
+
+在HTML当中，`<input type="file">` 允许用户从他们的存储设备中选择一个或多个文件以提交表单的方式上传到服务器上, 或者通过 Javascript 的  [File API](https://developer.mozilla.org/en-US/docs/Web/API/File/Using_files_from_web_applications)  对文件进行操作 。
+
+```
+<input type="file" />
+```
+
+由于该标签的  `value` 属性是只读的， 所以它是 React 中的一个**非受控组件**。我们会把它和其他非受控组件一起在[后面的章节](https://reactjs.org/docs/uncontrolled-components.html#the-file-input-tag)进行详细的介绍。
 
 ## 多个输入的解决方法
 
@@ -237,7 +255,7 @@ class Reservation extends React.Component {
 }
 ```
 
-[在 CodePen 上尝试.](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
+[在 CodePen 上尝试。](https://codepen.io/gaearon/pen/wgedvV?editors=0010)
 
 注意我们如何使用ES6当中的[计算属性名](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Operators/Object_initializer#Computed_property_names)语法来更新与给定输入名称相对应的状态键：
 
@@ -260,4 +278,8 @@ this.setState(partialState);
 ## 受控组件的替代方法
 
 有时使用受控组件可能很繁琐，因为您要为数据可能发生变化的每一种方式都编写一个事件处理程序，并通过一个组件来管理全部的状态。当您将预先存在的代码库转换为React或将React应用程序与非React库集成时，这可能变得特别烦人。在以上情况下，你或许应该看看[非受控组件](/docs/uncontrolled-components.html)，这是一种表单的替代技术。
+<<<<<<< HEAD:content/docs/forms.md
   
+=======
+
+>>>>>>> upstream/master:content/docs/forms.md

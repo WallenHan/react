@@ -2,6 +2,7 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
@@ -10,6 +11,23 @@ import React from 'react';
 import {media} from 'theme';
 
 const FooterNav = ({children, title, layoutHasSidebar = false}) => (
+=======
+ * @flow
+ */
+
+import React from 'react';
+import {media} from 'theme';
+
+import type {Node} from 'react';
+
+type Props = {
+  children: Node,
+  title?: string,
+  layoutHasSidebar: boolean,
+};
+
+const FooterNav = ({children, title, layoutHasSidebar = false}: Props) => (
+>>>>>>> upstream/master
   <div
     css={{
       display: 'flex',

@@ -5,12 +5,21 @@ permalink: docs/events.html
 layout: docs
 category: Reference
 ---
+<<<<<<< HEAD:content/docs/reference-events.md
 此参考指南记录了构成React一部分事件系统的`SyntheticEvent`封装器。请参阅[事件处理](/docs/handling-events.html)指南了解更多。
+=======
+
+此参考指南记录了构成React事件系统的一部分的`SyntheticEvent`封装器。请参阅[事件处理](/docs/handling-events.html)指南了解更多。
+>>>>>>> upstream/master:content/docs/reference-events.md
 
 ## 概述
 您的事件处理函数将会接收`SyntheticEvent`的实例，一个基于浏览器原生事件的跨浏览器实现。它拥有和浏览器原生事件一样的接口，包括`stopPropagation()`和`preventDefault()`，除了那些所有浏览器功能一样的事件。
 
+<<<<<<< HEAD:content/docs/reference-events.md
 出于某些原因，你得使用一些底层的浏览器事件，只需用`nativeEvent`的属性就能找到。每个`SyntheicEvent`对象都有如下属性：
+=======
+如果由于某些原因，你得使用一些底层的浏览器事件，只需用`nativeEvent`的属性就能找到。每个`SyntheicEvent`对象都有如下属性：
+>>>>>>> upstream/master:content/docs/reference-events.md
 
 ```javascript
 boolean bubbles
@@ -80,6 +89,7 @@ React标准化了事件，使其在不同的浏览器中拥有一致的属性。
 - [Image Events](#image-events)
 - [Animation Events](#animation-events)
 - [Transition Events](#transition-events)
+- [Other Events](#other-events)
 
 ***
 ## 参考
@@ -331,5 +341,15 @@ onTransitionEnd
 string propertyName
 string pseudoElement
 float elapsedTime
+```
+
+* * *
+
+### Other Events
+
+事件名:
+
+```
+onToggle
 ```
 

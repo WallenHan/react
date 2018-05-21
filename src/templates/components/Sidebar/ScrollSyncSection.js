@@ -7,8 +7,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import React, {Component} from 'react';
 import Section from './Section';
 

@@ -4,11 +4,17 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
 import React from 'react';
 
 const ExternalLinkSvg = ({cssProps = {}}) => (
+=======
+import React from 'react';
+
+const ExternalLinkSvg = ({cssProps = {}}: {cssProps: Object}) => (
+>>>>>>> upstream/master
   <svg
     x="0px"
     y="0px"

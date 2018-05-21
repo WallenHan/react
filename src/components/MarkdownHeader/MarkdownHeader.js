@@ -2,6 +2,7 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
@@ -12,6 +13,16 @@ import React from 'react';
 import {colors, fonts, media} from 'theme';
 
 const MarkdownHeader = ({title}) => (
+=======
+ * @flow
+ */
+
+import Flex from 'components/Flex';
+import React from 'react';
+import {colors, fonts, media} from 'theme';
+
+const MarkdownHeader = ({title}: {title: string}) => (
+>>>>>>> upstream/master
   <Flex type="header" halign="space-between" valign="baseline">
     <h1
       css={{
@@ -33,8 +44,11 @@ const MarkdownHeader = ({title}) => (
   </Flex>
 );
 
+<<<<<<< HEAD
 MarkdownHeader.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
+=======
+>>>>>>> upstream/master
 export default MarkdownHeader;

@@ -2,17 +2,39 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
 
+=======
+ * @flow
+ */
+
+>>>>>>> upstream/master
 import Link from 'gatsby-link';
 import React from 'react';
 import ExternalLinkSvg from 'templates/components/ExternalLinkSvg';
 import slugify from 'utils/slugify';
 import {colors, media} from 'theme';
 
+<<<<<<< HEAD
 const createLinkBlog = ({isActive, item, section}) => {
+=======
+import type {Node} from 'react';
+
+type CreateLinkBaseProps = {
+  isActive: boolean,
+  item: Object,
+  section: Object,
+};
+
+const createLinkBlog = ({
+  isActive,
+  item,
+  section,
+}: CreateLinkBaseProps): Node => {
+>>>>>>> upstream/master
   return (
     <Link css={[linkCss, isActive && activeLinkCss]} to={item.id}>
       {isActive && <span css={activeLinkBefore} />}
@@ -21,7 +43,15 @@ const createLinkBlog = ({isActive, item, section}) => {
   );
 };
 
+<<<<<<< HEAD
 const createLinkCommunity = ({isActive, item, section}) => {
+=======
+const createLinkCommunity = ({
+  isActive,
+  item,
+  section,
+}: CreateLinkBaseProps): Node => {
+>>>>>>> upstream/master
   if (item.href) {
     return (
       <a css={[linkCss]} href={item.href} target="_blank" rel="noopener">
@@ -44,7 +74,15 @@ const createLinkCommunity = ({isActive, item, section}) => {
   });
 };
 
+<<<<<<< HEAD
 const createLinkDocs = ({isActive, item, section}) => {
+=======
+const createLinkDocs = ({
+  isActive,
+  item,
+  section,
+}: CreateLinkBaseProps): Node => {
+>>>>>>> upstream/master
   return (
     <Link
       css={[linkCss, isActive && activeLinkCss]}
@@ -55,7 +93,20 @@ const createLinkDocs = ({isActive, item, section}) => {
   );
 };
 
+<<<<<<< HEAD
 const createLinkTutorial = ({isActive, item, onLinkClick, section}) => {
+=======
+type CreateLinkTutorialProps = {
+  onLinkClick: Function,
+} & CreateLinkBaseProps;
+
+const createLinkTutorial = ({
+  isActive,
+  item,
+  onLinkClick,
+  section,
+}: CreateLinkTutorialProps): Node => {
+>>>>>>> upstream/master
   return (
     <Link
       css={[linkCss, isActive && activeLinkCss]}

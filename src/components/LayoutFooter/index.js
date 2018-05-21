@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import Footer from './Footer';
 
 export default Footer;

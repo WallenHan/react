@@ -71,11 +71,14 @@ redirect_from:
 ### 寻求帮助
 
 如果你遇到了任何困难，可以在 [community support resources](https://facebook.github.io/community/support.html) 寻求帮助。 加入我们的 [Reactiflux chat](/community/support.html#reactiflux-chat) 也是一个很不错的选择。如果通过上述方式还是解决不了你的问题，你也可以给我们提一个 issue.
+<<<<<<< HEAD:content/tutorial/tutorial.md
 
 > **译者补充资源：**
 > 
 > * [从零学习React技术栈](https://zhuanlan.zhihu.com/reactjs) 
 > * [React China](http://react-china.org/)
+=======
+>>>>>>> upstream/master:content/tutorial/tutorial.md
 
 废话不多说，我们开始动手编码吧！
 
@@ -110,7 +113,7 @@ class ShoppingList extends React.Component {
 
 这里的 ShoppingList 是一种 **React 组件类**，或者叫 **React 组件类型** 之类的。一个组件会接受名为 `props` 的参数，并通过名为 `render` 的方法返回一个嵌套结构的视图。
 
-`render` 返回的是你对你想要渲染内容的**描述**。React 会根据你的描述将对应的内容在屏幕上渲染出来。讲得更具体一点，`render` 返回的是一个 **React 元素**，是一种对渲染内容比较简洁的描述。大部分 React 开发者都会使用一种名为 JSX 的语法扩展来跟方便地书写这种描述。比方说里面的 `<div />` 会被编译为 `React.createElement('div')` .上面的那个例子就等同于：
+`render` 返回的是你对你想要渲染内容的**描述**。React 会根据你的描述将对应的内容在屏幕上渲染出来。讲得更具体一点，`render` 返回的是一个 **React 元素**，是一种对渲染内容比较简洁的描述。大部分 React 开发者都会使用一种名为 JSX 的语法扩展来跟方便地书写这种描述。比方说里面的 `<div />` 会被编译为 `React.createElement('div')` 。上面的那个例子就等同于：
 
 ```javascript
 return React.createElement('div', {className: 'shopping-list'},
@@ -226,8 +229,13 @@ class Square extends React.Component {
 
 现在我们试着通过点击事件触发 state 的改变来更新棋盘格子显示的内容：
 
+<<<<<<< HEAD:content/tutorial/tutorial.md
 * 将 `<button>` 当中的 `this.props.value` 替换为 `this.state.value` .
 * 将 `() => alert()` 方法替换为 `() => this.setState({value: 'X'})` .
+=======
+* 将 `<button>` 当中的 `this.props.value` 替换为 `this.state.value` 。
+* 将 `() => alert()` 方法替换为 `() => this.setState({value: 'X'})` 。
+>>>>>>> upstream/master:content/tutorial/tutorial.md
 
 现在我们的 `<button>` 标签就变成了下面这样：
 
@@ -372,8 +380,8 @@ Board 现在的 `renderSquare` 方法看起来像下面这样：
 
 现在我们从 Board 组件向 Square 组件中传递两个 props 参数：`value` 和 `onClick`. `onClick` 里传递的是一个之后在 Square 组件中能够触发的方法函数。我们动手来修改代码吧：
 
-* 将 Square 组件的 `render` 方法中的 `this.state.value` 替换为 `this.props.value` .
-* 将 Square 组件的 `render` 方法中的 `this.setState()` 替换为 `this.props.onClick()` .
+* 将 Square 组件的 `render` 方法中的 `this.state.value` 替换为 `this.props.value` 。
+* 将 Square 组件的 `render` 方法中的 `this.setState()` 替换为 `this.props.onClick()` 。
 * 删掉 Square  组件中的 构造函数 `constructor` ，因为它现在已经不需要保存 state 了。
 
 进行如上修改之后，代码会变成下面这样：
@@ -500,7 +508,7 @@ var newPlayer = Object.assign({}, player, {score: 2});
 
 #### 在 React 当中判定何时重新渲染
 
-运用不可变性原则给 React 带来最大的好处是，既然我们现在可以很方便地判断对象数据是否发生改变了，那么也就很好决定何时根据数据的改变重新渲染组件。尤其是当我们编写的都属于 **纯组件 pure components **的时候，这种好处的效果更为明显。
+运用不可变性原则给 React 带来最大的好处是，既然我们现在可以很方便地判断对象数据是否发生改变了，那么也就很好决定何时根据数据的改变重新渲染组件。尤其是当我们编写的都属于 **纯组件 pure components** 的时候，这种好处的效果更为明显。
 
 了解更多有关 `shouldComponentUpdate()` 以及如何编写 *pure components* 的内容，你可以查阅 [性能优化](/docs/optimizing-performance.html#examples) 这一篇。
 
@@ -528,7 +536,7 @@ function Square(props) {
 
 ### 轮流落子
 
-很明显现在我们点击棋盘只后落子的只有 X . 下面我们要开发出 X 和 O 轮流落子的功能。
+很明显现在我们点击棋盘只后落子的只有 X 。 下面我们要开发出 X 和 O 轮流落子的功能。
 
 我们将 X 默认设置为先手棋：
 
@@ -748,9 +756,9 @@ class Game extends React.Component {
 
 接下来，就好像我们之前对 Square 组件的操作一样。我们将 Board 中的状态数据全都移动到 Game 组件当中。Board 现在通过 `props` 获取从 Game 传递下来的数据和事件处理函数。
 
-* 删除 Board 的构造方法 `constructor` .
-* 把 Board 的 `renderSquare` 方法中的 `this.state.squares[i]` 替换为 `this.props.squares[i]` .
-* 把 Board 的 `renderSquare` 方法中的 `this.handleClick(i)` 替换为 `this.props.onClick(i)` .
+* 删除 Board 的构造方法 `constructor` 。
+* 把 Board 的 `renderSquare` 方法中的 `this.state.squares[i]` 替换为 `this.props.squares[i]` 。
+* 把 Board 的 `renderSquare` 方法中的 `this.handleClick(i)` 替换为 `this.props.onClick(i)` 。
 
 现在我们的 Board 组件变成了下面这样：
 
@@ -1079,17 +1087,6 @@ class Game extends React.Component {
 
 现在你试着点击每一步棋记录的列表中的一项，棋盘会自动更新到对应项时的棋局状态。
 
-为了实现“悔棋”的功能，也就是说在切换至某一步之后我们能够继续下，我们需要在 `handleClick` 事件触发时去除掉切回棋步后面的所有记录，最简单的办法就是在 `handleClick` 事件的开头使用 `.slice()` 方法去除。
-
-```javascript{2}
-  render() {
-    const history = this.state.history.slice(0, this.state.stepNumber + 1);
-    const current = history[this.state.stepNumber];
-    const winner = calculateWinner(current.squares);
-
-    // the rest has not changed
-```
-
 ### 总结
 
 现在你已经有了一个功能相当丰富的井字棋游戏：
@@ -1114,3 +1111,8 @@ class Game extends React.Component {
 > 译者注：如果你在实现上述功能时遇到了问题，也可以参考[React井字棋游戏完整功能示例](https://codepen.io/discountry/pen/ENrZzV)。
 
 通过这一篇教程，我们大概了解了 React 当中包含 元素、组件、props、state 在内的一些概念。想要更深入地了解每一个关键概念，你可以继续阅读 [文档](/docs/hello-world.html)。想要更详细地了解 React 组件，可以查阅 [`React.Component` API 参考](/docs/react-component.html)。
+<<<<<<< HEAD:content/tutorial/tutorial.md
+=======
+
+
+>>>>>>> upstream/master:content/tutorial/tutorial.md

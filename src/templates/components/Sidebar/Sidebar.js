@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import React, {Component} from 'react';
 import Flex from 'components/Flex';
 import Section from './Section';

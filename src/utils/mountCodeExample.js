@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import CodeEditor from '../components/CodeEditor';
 import React from 'react';
 import ReactDOM from 'react-dom';

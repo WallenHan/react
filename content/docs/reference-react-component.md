@@ -9,7 +9,11 @@ redirect_from:
   - "docs/component-specs.html"
   - "docs/component-specs-ko-KR.html"
   - "docs/component-specs-zh-CN.html"
+<<<<<<< HEAD
   - "tips/componentWillReceiveProps-not-triggered-after-mounting.html"
+=======
+  - "tips/UNSAFE_componentWillReceiveProps-not-triggered-after-mounting.html"
+>>>>>>> upstream/master
   - "tips/dom-event-listeners.html"
   - "tips/initial-ajax.html"
   - "tips/use-react-with-other-libraries.html"
@@ -42,7 +46,12 @@ class Greeting extends React.Component {
 这些方法会在组件实例被创建和插入DOM中时被调用：
 
 - [`constructor()`](#constructor)
+<<<<<<< HEAD
 - [`componentWillMount()`](#componentwillmount)
+=======
+- [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
+- [`componentWillMount()` / `UNSAFE_componentWillMount()`](#unsafe_componentwillmount)
+>>>>>>> upstream/master
 - [`render()`](#render)
 - [`componentDidMount()`](#componentdidmount)
 
@@ -50,10 +59,19 @@ class Greeting extends React.Component {
 
 属性或状态的改变会触发一次更新。当一个组件在被重渲时，这些方法将会被调用：
 
+<<<<<<< HEAD
 - [`componentWillReceiveProps()`](#componentwillreceiveprops)
 - [`shouldComponentUpdate()`](#shouldcomponentupdate)
 - [`componentWillUpdate()`](#componentwillupdate)
 - [`render()`](#render)
+=======
+- [`componentWillReceiveProps()` / `UNSAFE_componentWillReceiveProps()`](#unsafe_componentwillreceiveprops)
+- [`static getDerivedStateFromProps()`](#static-getderivedstatefromprops)
+- [`shouldComponentUpdate()`](#shouldcomponentupdate)
+- [`componentWillUpdate()` / `UNSAFE_componentWillUpdate()`](#unsafe_componentwillupdate)
+- [`render()`](#render)
+- [`getSnapshotBeforeUpdate()`](#getsnapshotbeforeupdate)
+>>>>>>> upstream/master
 - [`componentDidUpdate()`](#componentdidupdate)
 
 #### 卸载
@@ -62,6 +80,15 @@ class Greeting extends React.Component {
 
 - [`componentWillUnmount()`](#componentwillunmount)
 
+<<<<<<< HEAD
+=======
+#### 错误处理
+
+在渲染过程中发生错误时会被调用：
+
+- [`componentDidCatch()`](#componentdidcatch)
+
+>>>>>>> upstream/master
 ### 其他API
 
 每一个组件还提供了其他的API：
@@ -148,6 +175,7 @@ constructor(props) {
 }
 ```
 
+<<<<<<< HEAD
 意识到这模式，任何的属性更新不会使得状态是最新的。保证属性和状态同步，你通常想要[状态提升](/docs/lifting-state-up.html)。
 
 若你通过使用它们为状体“分离”属性，你可能也想要实现[`componentWillReceiveProps(nextProps)`](#componentwillreceiveprops)以保持最新的状态。但状态提升通常来说更容易以及更少的异常。
@@ -163,6 +191,43 @@ componentWillMount()
 `componentWillMount()`在装配发生前被立刻调用。其在`render()`之前被调用，因此在这方法里同步地设置状态将不会触发重渲。避免在该方法中引入任何的副作用或订阅。
 
 这是唯一的会在服务端渲染调起的生命周期钩子函数。通常地，我们推荐使用`constructor()`来替代。
+=======
+当心这种模式，因为状态将不会随着属性的更新而更新。保证属性和状态同步，你通常想要[状态提升](/docs/lifting-state-up.html)。
+
+若你通过使用它们为状态“分离”属性，你可能也想要实现[`UNSAFE_componentWillReceiveProps(nextProps)`](#componentwillreceiveprops)以保持最新的状态。但状态提升通常来说更容易以及更少的异常。
+
+* * *
+
+### `static getDerivedStateFromProps()`
+
+```js
+static getDerivedStateFromProps(nextProps, prevState)
+```
+
+组件实例化后和接受新属性时将会调用`getDerivedStateFromProps`。它应该返回一个对象来更新状态，或者返回null来表明新属性不需要更新任何状态。
+
+注意，如果父组件导致了组件的重新渲染，即使属性没有更新，这一方法也会被调用。如果你只想处理变化，你可能想去比较新旧值。
+
+调用`this.setState()` 通常不会触发 `getDerivedStateFromProps()`。
+
+* * *
+
+### `UNSAFE_componentWillMount()`
+
+```javascript
+UNSAFE_componentWillMount()
+```
+
+`UNSAFE_componentWillMount()`在装配发生前被立刻调用。其在`render()`之前被调用，因此在这方法里同步地设置状态将不会触发重渲。
+
+避免在该方法中引入任何的副作用或订阅。对于这些使用场景，我们推荐使用`constructor()`来替代。
+
+这是唯一的会在服务端渲染调起的生命周期钩子函数。
+
+> 注意
+>
+> 这一生命周期之前叫做`componentWillMount`。这一名字在17版前都有效。可以使用[`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles)来自动更新你的组件。
+>>>>>>> upstream/master
 
 * * *
 
@@ -174,6 +239,7 @@ componentDidMount()
 
 `componentDidMount()`在组件被装配后立即调用。初始化使得DOM节点应该进行到这里。若你需要从远端加载数据，这是一个适合实现网络请求的地方。在该方法里设置状态将会触发重渲。
 
+<<<<<<< HEAD
 * * *
 
 ### `componentWillReceiveProps()`
@@ -187,6 +253,33 @@ componentWillReceiveProps(nextProps)
 注意即使属性未有任何改变，React可能也会调用该方法，因此若你想要处理改变，请确保比较当前和之后的值。这可能会发生在当父组件引起你的组件重渲。
 
 在 [装配](#mounting)期间，React并不会调用带有初始属性的`componentWillReceiveProps`方法。其仅会调用该方法如果某些组件的属性可能更新。调用`this.setState`通常不会触发`componentWillReceiveProps`。
+=======
+这一方法是一个发起任何订阅的好地方。如果你这么做了，别忘了在`componentWillUnmount()`退订。
+
+在这个方法中调用`setState()`将会触发一次额外的渲染，但是它将在浏览器刷新屏幕之前发生。这保证了即使`render()`将会调用两次，但用户不会看到中间状态。谨慎使用这一模式，因为它常导致性能问题。然而，它对于像模态框和工具提示框这样的例子是必须的。这时，在渲染依赖DOM节点的尺寸或者位置的视图前，你需要先测量这些节点。
+
+* * *
+
+### `UNSAFE_componentWillReceiveProps()`
+
+```javascript
+UNSAFE_componentWillReceiveProps(nextProps)
+```
+
+>注意
+>
+> 推荐你使用[`getDerivedStateFromProps`](#static-getderivedstatefromprops)生命周期而不是`UNSAFE_componentWillReceiveProps`。[关于此建议在此了解详情。](/blog/2018/03/29/react-v-16-3.html#component-lifecycle-changes)
+
+`UNSAFE_componentWillReceiveProps()`在装配了的组件接收到新属性前调用。若你需要更新状态响应属性改变（例如，重置它），你可能需对比`this.props`和`nextProps`并在该方法中使用`this.setState()`处理状态改变。
+
+注意即使属性未有任何改变，React可能也会调用该方法，因此若你想要处理改变，请确保比较当前和之后的值。这可能会发生在当父组件引起你的组件重渲。
+
+在 [装配](#mounting)期间，React并不会调用带有初始属性的`UNSAFE_componentWillReceiveProps`方法。其仅会调用该方法如果某些组件的属性可能更新。调用`this.setState`通常不会触发`UNSAFE_componentWillReceiveProps`。
+
+>注意
+>
+> 这一生命周期之前叫做`componentWillReceiveProps`。这一名字在17版前都有效。可以使用[`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles)来自动更新你的组件。
+>>>>>>> upstream/master
 
 * * *
 
@@ -202,12 +295,17 @@ shouldComponentUpdate(nextProps, nextState)
 
 当他们状态改变时，返回`false` 并不能阻止子组件重渲。
 
+<<<<<<< HEAD
 当前，若`shouldComponentUpdate()`返回`false`，而后[`componentWillUpdate()`](#componentwillupdate)，[`render()`](#render)， 和 [`componentDidUpdate()`](#componentdidupdate)将不会被调用。注意，在未来React可能会将`shouldComponentUpdate()`作为一个线索而不是一个严格指令，返回`false`可能仍然使得组件重渲。
+=======
+当前，若`shouldComponentUpdate()`返回`false`，而后[`UNSAFE_componentWillUpdate()`](#componentwillupdate)，[`render()`](#render)， 和 [`componentDidUpdate()`](#componentdidupdate)将不会被调用。注意，在未来React可能会将`shouldComponentUpdate()`作为一个线索而不是一个严格指令，返回`false`可能仍然使得组件重渲。
+>>>>>>> upstream/master
 
 在观察后，若你判定一个具体的组件很慢，你可能需要调整其从[`React.PureComponent`](/docs/react-api.html#react.purecomponent)继承，其实现了带有浅属性和状态比较的`shouldComponentUpdate()`。若你确信想要手写，你可能需要用`this.props`和`nextProps`以及`this.state` 和 `nextState`比较，并返回`false`以告诉React更新可以被忽略。
 
 * * *
 
+<<<<<<< HEAD
 ### `componentWillUpdate()`
 
 ```javascript
@@ -221,6 +319,38 @@ componentWillUpdate(nextProps, nextState)
 > 注意
 >
 > 若[`shouldComponentUpdate()`](#shouldcomponentupdate)返回false，`componentWillUpdate()`将不会被调用。
+=======
+### `UNSAFE_componentWillUpdate()`
+
+```javascript
+UNSAFE_componentWillUpdate(nextProps, nextState)
+```
+
+当接收到新属性或状态时，`UNSAFE_componentWillUpdate()`为在渲染前被立即调用。在更新发生前，使用该方法是一次准备机会。该方法不会在初始化渲染时调用。
+
+注意你不能在这调用`this.setState()`，若你需要更新状态响应属性的调整，使用[`getDerivedStateFromProps()`](#static-getderivedstatefromprops) 代替。
+
+> 注意
+>
+> 这一生命周期之前叫做`componentWillUpdate`。这一名字在17版前都有效。可以使用[`rename-unsafe-lifecycles` codemod](https://github.com/reactjs/react-codemod#rename-unsafe-lifecycles)来自动更新你的组件。
+
+> 注意
+>
+> 若[`shouldComponentUpdate()`](#shouldcomponentupdate)返回false，`UNSAFE_componentWillUpdate()`将不会被调用。
+
+* * *
+
+### `getSnapshotBeforeUpdate()`
+
+`getSnapshotBeforeUpdate()`在最新的渲染输出提交给DOM前将会立即调用。它让你的组件能在当前的值可能要改变前获得它们。这一生命周期返回的任何值将会
+作为参数被传递给`componentDidUpdate()`。
+
+例如：
+
+`embed:react-component-reference/get-snapshot-before-update.js`
+
+在上面的例子中，为了支持异步渲染，在`getSnapshotBeforeUpdate` 中读取`scrollHeight`而不是`componentWillUpdate`，这点很重要。由于异步渲染，在“渲染”时期（如`componentWillUpdate`和`render`）和“提交”时期（如`getSnapshotBeforeUpdate`和`componentDidUpdate`）间可能会存在延迟。如果一个用户在这期间做了像改变浏览器尺寸的事，从`componentWillUpdate`中读出的`scrollHeight`值将是滞后的。
+>>>>>>> upstream/master
 
 * * *
 
@@ -250,6 +380,27 @@ componentWillUnmount()
 
 * * *
 
+<<<<<<< HEAD
+=======
+### `componentDidCatch()`
+
+```javascript
+componentDidCatch(error, info)
+```
+
+错误边界是React组件，并不是损坏的组件树。错误边界捕捉发生在子组件树中任意地方的JavaScript错误，打印错误日志，并且显示回退的用户界面。错误边界捕捉渲染期间、在生命周期方法中和在它们之下整棵树的构造函数中的错误。
+
+如果定义了这一生命周期方法，一个类组件将成为一个错误边界。在错误边界中调用`setState()`让你捕捉当前树之下未处理的JavaScript错误，并显示回退的用户界面。只使用错误边界来恢复异常，而不要尝试将它们用于控制流。
+
+详情请见[*React 16中的错误处理*](/blog/2017/07/26/error-handling-in-react-16.html)。
+
+> 注意
+> 
+> 错误边界只捕捉树中发生在它们**之下**组件里的错误。一个错误边界并不能捕捉它自己内部的错误。
+
+* * *
+
+>>>>>>> upstream/master
 ### `setState()`
 
 ```javascript
@@ -259,7 +410,11 @@ setState(updater, [callback])
 `setState()`将需要处理的变化塞入（译者注：setState源码中将一个需要改变的变化存放到组件的state对象中，采用队列处理）组件的state对象中，
 并告诉该组件及其子组件需要用更新的状态来重新渲染。这是用于响应事件处理和服务端响应的更新用户界面的主要方式。
 
+<<<<<<< HEAD
 将`setState()`认为是一次*请求*而不是一次立即执行更新组件的命令。为了更为客观的性能，React可能会推迟它，稍后会一次性更新这些组件。React不会保证在setState之后，能够立刻拿到改变的结果。
+=======
+将`setState()`认为是一次*请求*而不是一次立即执行更新组件的命令。为了更为可观的性能，React可能会推迟它，稍后会一次性更新这些组件。React不会保证在setState之后，能够立刻拿到改变的结果。
+>>>>>>> upstream/master
 
 `setState()`不是立刻更新组件。其可能是批处理或推迟更新。这使得在调用`setState()`后立刻读取`this.state`的一个潜在陷阱。代替地，使用`componentDidUpdate`或一个`setState`回调（`setState(updater, callback)`），当中的每个方法都会保证在更新被应用之后触发。若你需要基于之前的状态来设置状态，阅读下面关于`updater`参数的介绍。
 

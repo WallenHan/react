@@ -7,6 +7,9 @@ acdlite:
 benigeri:
   name: Paul Benigeri
   url: https://github.com/benigeri
+bvaughn:
+  name: Brian Vaughn
+  url: https://github.com/bvaughn
 chenglou:
   name: Cheng Lou
   url: https://twitter.com/_chenglou
@@ -66,7 +69,11 @@ sebmarkbage:
   url: https://twitter.com/sebmarkbage
 sophiebits:
   name: Sophie Alpert
+<<<<<<< HEAD:content/authors.yml
   url: https://sophiealpert.com
+=======
+  url: https://sophiebits.com/
+>>>>>>> upstream/master:content/authors.yml
 steveluscher:
   name: Steven Luscher
   url: https://twitter.com/steveluscher

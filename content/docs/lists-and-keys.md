@@ -24,7 +24,7 @@ console.log(doubled);
 
 你可以通过使用`{}`在JSX内构建一个[元素集合](/docs/introducing-jsx.html#JSX嵌套)
 
-下面，我们使用Javascript中的[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)方法循遍历`numbers`数组。对数组中的每个元素返回`<li>`标签，最后我们得到一个数组`listItems`
+下面，我们使用Javascript中的[`map()`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map)方法遍历`numbers`数组。对数组中的每个元素返回`<li>`标签，最后我们得到一个数组`listItems`
 
 ```javascript{2-4}
 const numbers = [1, 2, 3, 4, 5];
@@ -71,7 +71,11 @@ ReactDOM.render(
 );
 ```
 
+<<<<<<< HEAD:content/docs/lists-and-keys.md
 当我们运行这段代码，将会看到一个警告 `a key should be provided for list items` ,意思是当你创建一个元素时，必须包括一个特殊的 `key` 属性。我们将在下一节讨论这是为什么。
+=======
+当我们运行这段代码，将会看到一个警告 `a key should be provided for list items` ，意思是当你创建一个元素时，必须包括一个特殊的 `key` 属性。我们将在下一节讨论这是为什么。
+>>>>>>> upstream/master:content/docs/lists-and-keys.md
 
 让我们来给每个列表元素分配一个 `key` 来解决上面的那个警告：
 

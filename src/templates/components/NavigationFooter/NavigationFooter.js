@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import Container from 'components/Container';
 import Flex from 'components/Flex';
 import Link from 'gatsby-link';
@@ -42,13 +45,22 @@ const NavigationFooter = ({next, prev, location}) => {
           <Flex basis="50%" type="li">
             {prev && (
               <div>
+<<<<<<< HEAD
                 <SecondaryLabel>Previous article</SecondaryLabel>
+=======
+                <SecondaryLabel>上一篇</SecondaryLabel>
+>>>>>>> upstream/master
                 <div
                   css={{
                     paddingTop: 10,
                   }}>
+<<<<<<< HEAD
                   <PrimaryLink location={location} to={prev}>
                     {linkToTitle(prev)}
+=======
+                  <PrimaryLink location={location} to={`${prev.id}.html`}>
+                    {prev.title}
+>>>>>>> upstream/master
                   </PrimaryLink>
                 </div>
               </div>
@@ -63,13 +75,22 @@ const NavigationFooter = ({next, prev, location}) => {
                 textAlign: 'right',
               }}>
               <div>
+<<<<<<< HEAD
                 <SecondaryLabel>Next article</SecondaryLabel>
+=======
+                <SecondaryLabel>下一篇</SecondaryLabel>
+>>>>>>> upstream/master
                 <div
                   css={{
                     paddingTop: 10,
                   }}>
+<<<<<<< HEAD
                   <PrimaryLink location={location} to={next}>
                     {linkToTitle(next)}
+=======
+                  <PrimaryLink location={location} to={`${next.id}.html`}>
+                    {next.title}
+>>>>>>> upstream/master
                   </PrimaryLink>
                 </div>
               </div>
@@ -82,14 +103,28 @@ const NavigationFooter = ({next, prev, location}) => {
 };
 
 NavigationFooter.propTypes = {
+<<<<<<< HEAD
   next: PropTypes.string,
   prev: PropTypes.string,
+=======
+  next: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+  prev: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+  }),
+>>>>>>> upstream/master
 };
 
 export default NavigationFooter;
 
+<<<<<<< HEAD
 const linkToTitle = link => link.replace(/-/g, ' ').replace('.html', '');
 
+=======
+>>>>>>> upstream/master
 const PrimaryLink = ({children, to, location}) => {
   // quick fix
   // TODO: replace this with better method of getting correct full url
@@ -99,7 +134,10 @@ const PrimaryLink = ({children, to, location}) => {
     <Link
       css={{
         display: 'inline',
+<<<<<<< HEAD
         textTransform: 'capitalize',
+=======
+>>>>>>> upstream/master
         borderColor: colors.subtle,
         transition: 'border-color 0.2s ease',
         fontSize: 30,

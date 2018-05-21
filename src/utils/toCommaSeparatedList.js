@@ -2,6 +2,7 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
@@ -12,6 +13,22 @@ const addString = (list, string) =>
   list.push(<span key={`${list.length}-${string}`}>{string}</span>);
 
 const toCommaSeparatedList = (array, renderCallback) => {
+=======
+ * @flow
+ */
+
+import React from 'react';
+
+import type {Node} from 'react';
+
+const addString = (list: Array<Node>, string: string) =>
+  list.push(<span key={`${list.length}-${string}`}>{string}</span>);
+
+const toCommaSeparatedList = (
+  array: Array<any>,
+  renderCallback: Function,
+): Array<any> => {
+>>>>>>> upstream/master
   if (array.length <= 1) {
     return array.map(renderCallback);
   }

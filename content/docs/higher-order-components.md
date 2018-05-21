@@ -119,14 +119,14 @@ const CommentListWithSubscription = withSubscription(
 const BlogPostWithSubscription = withSubscription(
   BlogPost,
   (DataSource, props) => DataSource.getBlogPost(props.id)
-});
+);
 ```
 
 第一个参数是包裹组件（wrapped component），第二个参数会从 `DataSource`和当前props（译者注：根据代码示例，这里应该是高阶组件的props属性）属性中检索应用需要的数据。
 
 当 `CommentListWithSubscription` 和 `BlogPostWithSubscription` 渲染时, 会向`CommentList` 和 `BlogPost` 传递一个 `data` props属性，该 `data`属性的数据包含了从 `DataSource` 检索的最新数据：
 
-```js
+```js{31}
 // 函数接受一个组件参数……
 function withSubscription(WrappedComponent, selectData) {
   // ……返回另一个新组件……
@@ -169,7 +169,7 @@ function withSubscription(WrappedComponent, selectData) {
 
 因为 `withSubscription` 就是一个普通函数，你可以添加任意数量的参数。例如，你或许会想使 `data` 属性可配置化，使高阶组件和包裹组件进一步隔离开。或者你想要接收一个参数用于配置 `shouldComponentUpdate` 函数，或配置数据源的参数。这些都可以实现，因为高阶组件可以完全控制新组件的定义。
 
-和普通组件一样，`withSubscription` 和包裹组件之间的关联是完全基于props属性的。只要高级组件向包裹组件提供相同的props属性，就可以轻松的将一个高阶组件转换成不同的高阶组件。例如，如果要改变数据获取库，这就非常有用。
+和普通组件一样，`withSubscription` 和包裹组件之间的关联是完全基于 props 属性的。这就使为组件切换一个 HOC 变得非常轻松，只要保证备选的几种高阶组件向包裹组件提供是相同类型的 props 属性即可。就像上述这个例子中，在为组件切换数据源时，就会显得非常有用。
 
 ## 不要改变原始组件，使用组合
 
@@ -190,9 +190,9 @@ function logProps(InputComponent) {
 const EnhancedComponent = logProps(InputComponent);
 ```
 
-上面的示例有一些问题。首先就是，input组件不能够脱离增强型组件（enhanced component）被重用。更关键的一点是，如果你用另一个高级组件来转变 `EnhancedComponent` ，同样的也去改变 `componentWillReceiveProps` 函数时，第一个高阶组件（即EnhancedComponent）转换的功能就会被覆盖。这样的高阶组件（修改原型的高级组件）对没有生命周期函数的无状态函数式组件也是无效的。
+上面的示例有一些问题。首先就是，input组件不能够脱离增强型组件（enhanced component）被重用。更关键的一点是，如果你用另一个高阶组件来转变 `EnhancedComponent` ，同样的也去改变 `componentWillReceiveProps` 函数时，第一个高阶组件（即EnhancedComponent）转换的功能就会被覆盖。这样的高阶组件（修改原型的高阶组件）对没有生命周期函数的无状态函数式组件也是无效的。
 
-更改型高阶组件（mutating HOCs）泄露了组件的抽象性 —— 使用者必须知道他们的具体实现，才能避免与其它高级组件的冲突。
+更改型高阶组件（mutating HOCs）泄露了组件的抽象性 —— 使用者必须知道他们的具体实现，才能避免与其它高阶组件的冲突。
 
 不应该修改原组件，高阶组件应该使用组合技术，将input组件包含到容器组件中：
 
@@ -282,14 +282,14 @@ const ConnectedComment = enhance(CommentList);
 
 ```js
 // 不要这样做……
-const EnhancedComponent = connect(commentSelector)(withRouter(WrappedComponent))
+const EnhancedComponent = withRouter(connect(commentSelector)(WrappedComponent))
 
 // ……你可以使用一个功能组合工具
 // compose(f, g, h) 和 (...args) => f(g(h(...args)))是一样的
 const enhance = compose(
   // 这些都是单参数的高阶组件
-  connect(commentSelector),
-  withRouter
+  withRouter,
+  connect(commentSelector)
 )
 const EnhancedComponent = enhance(WrappedComponent)
 ```
@@ -301,9 +301,9 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 ## 约定：包装显示名字以便于调试
 
-高价组件创建的容器组件在[`React Developer Tools`](https://github.com/facebook/react-devtools)中的表现和其它的普通组件是一样的。为了便于调试，可以选择一个好的名字，确保能够识别出它是由高阶组件创建的新组件还是普通的组件。
+高阶组件创建的容器组件在[`React Developer Tools`](https://github.com/facebook/react-devtools)中的表现和其它的普通组件是一样的。为了便于调试，可以选择一个好的名字，确保能够识别出它是由高阶组件创建的新组件还是普通的组件。
 
-最常用的技术就是将包裹组件的名字包装在显示名字中。所以，如果你的高阶组件名字是 `withSubscription`，且包裹组件的显示名字是 `CommentList`，那么就是用 `withSubscription(CommentList)`这样的显示名字：
+最常用的技术就是将包裹组件的名字包装在显示名字中。所以，如果你的高阶组件名字是 `withSubscription`，且包裹组件的显示名字是 `CommentList`，那么就是用 `WithSubscription(CommentList)`这样的显示名字：
 
 ```js
 function withSubscription(WrappedComponent) {
@@ -398,30 +398,8 @@ import MyComponent, { someFunction } from './MyComponent.js';
 
 ### Refs属性不能传递
 
-一般来说，高阶组件可以传递所有的props属性给包裹的组件，但是不能传递refs引用。因为并不是像`key`一样，refs是一个伪属性，React对它进行了特殊处理。如果你向一个由高级组件创建的组件的元素添加ref应用，那么ref指向的是最外层容器组件实例的，而不是包裹组件。
+一般来说，高阶组件可以传递所有的props属性给包裹的组件，但是不能传递refs引用。因为并不是像`key`一样，refs是一个伪属性，React对它进行了特殊处理。如果你向一个由高阶组件创建的组件的元素添加ref应用，那么ref指向的是最外层容器组件实例的，而不是包裹组件。
 
 如果你碰到了这样的问题，最理想的处理方案就是搞清楚如何避免使用 `ref`。有时候，没有看过React示例的新用户在某种场景下使用prop属性要好过使用ref。
 
-话说，有时候不可避免的要使用ref应用——React在任何时候都不建议使用。例如聚焦输入表单的例子中，你可能想要对组件命令式的控制，在这种情况下，传递一个ref回调函数属性，也就是给ref应用一个不同的名字，这就是一个不错的解决方案：
-
-```js
-function Field({ inputRef, ...rest }) {
-  return <input ref={inputRef} {...rest} />;
-}
-
-// 在高阶组件中增强Field组件
-const EnhancedField = enhance(Field);
-
-// 组件的render函数中……
-<EnhancedField
-  inputRef={(inputEl) => {
-    // 该回调函数被作为常规的props属性传递
-    this.inputEl = inputEl
-  }}
-/>
-
-// 现在你就可以愉快的调用控制函数了
-this.inputEl.focus();
-```
-
-无论怎样，这都不是最完美的解决方案。我们更愿意把refs应用问题留给库来解决，也不愿让使用者手动去处理他们。我们正在探索解决这个问题的方法，能够让你安心的使用高阶组件而不必关注这个问题。
+现在我们提供一个名为 `React.forwardRef` 的 API 来解决这一问题（在 React 16.3 版本中）。[在 refs 传递章节中了解详情](/docs/forwarding-refs.html)。

@@ -5,8 +5,13 @@ preserve_hierarchy: true
 
 files:
   -
+<<<<<<< HEAD
     source: '/docs/*.md'
     translation: '/docs/i18n/%locale%/%original_file_name%'
+=======
+    source: '/content/docs/*.md'
+    translation: '/docs/%locale%/docs/%original_file_name%'
+>>>>>>> upstream/master
     languages_mapping: &anchor
       locale:
         'af': 'af'
@@ -44,6 +49,7 @@ files:
         'zh-CN': 'zh-Hans'
         'zh-TW': 'zh-Hant'
   -
+<<<<<<< HEAD
     source: '/tutorial/*.md'
     translation: '/tutorial/%locale%/%original_file_name%'
     languages_mapping: *anchor
@@ -99,3 +105,45 @@ files:
     source: '/jsx-compiler.md'
     translation: '/%locale%/jsx-compiler.md'
     languages_mapping: *anchor
+=======
+    source: '/content/blog/*.md'
+    translation: '/docs/%locale%/blog/%original_file_name%'
+    languages_mapping: *anchor
+  -
+    source: '/content/tutorial/*.md'
+    translation: '/docs/%locale%/tutorial/%original_file_name%'
+    languages_mapping: *anchor
+  -
+    source: '/content/community/*.md'
+    translation: '/docs/%locale%/community/%original_file_name%'
+    ignore:
+      - '/content/community/complementary-tools.it-IT.md'
+      - '/content/community/complementary-tools.ko-KR.md'
+      - '/content/community/complementary-tools.zh-CN.md'
+      - '/content/community/conferences.it-IT.md'
+      - '/content/community/conferences.ko-KR.md'
+      - '/content/community/conferences.zh-CN.md'
+      - '/content/community/examples.it-IT.md'
+      - '/content/community/examples.ko-KR.md'
+      - '/content/community/examples.zh-CN.md'
+      - '/content/community/videos.it-IT.md'
+      - '/content/community/videos.ko-KR.md'
+      - '/content/community/videos.zh-CN.md'
+    languages_mapping: *anchor
+  -
+    source: '/content/contributing/*.md'
+    translation: '/docs/%locale%/contributing/%original_file_name%'
+    languages_mapping: *anchor
+  -
+    source: '/content/warnings/*.md'
+    translation: '/docs/%locale%/warnings/%original_file_name%'
+    languages_mapping: *anchor
+  -
+    source: '/README.md'
+    translation: '/docs/%locale%/README.md'
+    languages_mapping: *anchor
+  -
+    source: '/content/404.md'
+    translation: '/docs/%locale%/404.md'
+    languages_mapping: *anchor
+>>>>>>> upstream/master

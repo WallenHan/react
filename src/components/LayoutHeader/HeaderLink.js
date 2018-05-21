@@ -2,15 +2,31 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
 
+=======
+ * @flow
+ */
+
+>>>>>>> upstream/master
 import Link from 'gatsby-link';
 import React from 'react';
 import {colors, media} from 'theme';
 
+<<<<<<< HEAD
 const HeaderLink = ({isActive, title, to}) => (
+=======
+type Props = {
+  isActive: boolean,
+  title: string,
+  to: string,
+};
+
+const HeaderLink = ({isActive, title, to}: Props) => (
+>>>>>>> upstream/master
   <Link css={[style, isActive && activeStyle]} to={to}>
     {title}
     {isActive && <span css={activeAfterStyle} />}
@@ -27,6 +43,15 @@ const style = {
   paddingRight: 15,
   fontWeight: 300,
 
+<<<<<<< HEAD
+=======
+  ':focus': {
+    outline: 0,
+    backgroundColor: colors.lighter,
+    color: colors.white,
+  },
+
+>>>>>>> upstream/master
   [media.size('xsmall')]: {
     paddingLeft: 8,
     paddingRight: 8,
@@ -42,7 +67,11 @@ const style = {
     paddingRight: 20,
     fontSize: 18,
 
+<<<<<<< HEAD
     ':hover': {
+=======
+    ':hover:not(:focus)': {
+>>>>>>> upstream/master
       color: colors.brand,
     },
   },

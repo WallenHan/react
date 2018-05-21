@@ -4,8 +4,11 @@
  * @emails react-core
  */
 
+<<<<<<< HEAD
 'use strict';
 
+=======
+>>>>>>> upstream/master
 import PropTypes from 'prop-types';
 import React from 'react';
 import MarkdownPage from 'components/MarkdownPage';

@@ -4,4 +4,11 @@ node_modules/*
 content/*
 
 # Ignore built files
+<<<<<<< HEAD
 public/*
+=======
+public/*
+
+# Ignore examples
+examples/*
+>>>>>>> upstream/master

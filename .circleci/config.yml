@@ -3,7 +3,17 @@ jobs:
   build:
     docker:
       - image: circleci/node:latest
+<<<<<<< HEAD
     steps:
+=======
+    branches:
+      only:
+        - master
+    steps:
+      - add_ssh_keys:
+          fingerprints:
+            - "97:9d:81:42:c7:35:bd:55:48:89:95:e1:38:e7:2c:fe"
+>>>>>>> upstream/master
       - checkout
       - restore_cache:
           keys:
@@ -18,5 +28,17 @@ jobs:
             - node_modules
           key: dependencies-{{ checksum "package.json" }}
       - run:
+<<<<<<< HEAD
           name: Check Prettier, ESLint, Flow
           command: yarn ci-check
+=======
+          name: Gatsby build site
+          command: yarn build
+      - run:
+          name: Prepare shell commands
+          command: cp .scripts/gatsby-deploy.sh ../ && chmod +x ../gatsby-deploy.sh
+      - run:
+          name: Run deploy scripts
+          command: ../gatsby-deploy.sh
+      
+>>>>>>> upstream/master

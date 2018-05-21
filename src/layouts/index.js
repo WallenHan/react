@@ -2,10 +2,16 @@
  * Copyright (c) 2013-present, Facebook, Inc.
  *
  * @emails react-core
+<<<<<<< HEAD
  */
 
 'use strict';
 
+=======
+ * @flow
+ */
+
+>>>>>>> upstream/master
 // Polyfills for IE
 import 'array-from';
 import 'string.prototype.includes';
@@ -23,6 +29,7 @@ import 'glamor/reset';
 import 'css/reset.css';
 import 'css/algolia.css';
 
+<<<<<<< HEAD
 class Template extends Component {
   componentDidMount() {
     // Initialize Algolia search.
@@ -35,6 +42,14 @@ class Template extends Component {
     });
   }
 
+=======
+type Props = {
+  children: Function,
+  location: Location,
+};
+
+class Template extends Component<Props> {
+>>>>>>> upstream/master
   render() {
     const {children, location} = this.props;
 
